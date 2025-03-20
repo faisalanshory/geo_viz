@@ -1,38 +1,50 @@
+'use client'
+import dynamic from 'next/dynamic'
+import Script from 'next/script'
+
+// Import Map dengan dynamic untuk menghindari SSR issues
+const Map = dynamic(() => import('@/components/Map'), {
+  ssr: false,
+  loading: () => <div>Loading map...</div>
+})
+
 export default function Home() {
   return (
-    <main className="min-h-screen p-8">
-      <div className="max-w-7xl mx-auto">
-        <header className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">Welcome to Geo-Viz</h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300">
-            Interactive Geographic Visualization Platform
-          </p>
-        </header>
+    <>
+      <div id="control-panel">
+        <div className="panel-section">
+          <h3>Layers</h3>
+          <div id="layers-list"></div>
+          <form id="upload-form">
+            <input type="file" id="geojson-file" accept=".geojson,.json" />
+            <button type="submit">Add Layer</button>
+          </form>
+        </div>
 
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* Feature Cards */}
-          <div className="p-6 border rounded-lg shadow-sm">
-            <h2 className="text-xl font-semibold mb-3">Map Visualization</h2>
-            <p className="text-gray-600 dark:text-gray-300">
-              Explore geographic data through interactive maps
-            </p>
+        <div className="panel-section">
+          <h3>Feature Properties</h3>
+          <div id="table-container">
+            <table id="data-table" className="display">
+              <thead>
+                <tr>
+                  <th>Property</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
           </div>
-
-          <div className="p-6 border rounded-lg shadow-sm">
-            <h2 className="text-xl font-semibold mb-3">Data Analysis</h2>
-            <p className="text-gray-600 dark:text-gray-300">
-              Analyze geographic patterns and trends
-            </p>
-          </div>
-
-          <div className="p-6 border rounded-lg shadow-sm">
-            <h2 className="text-xl font-semibold mb-3">Custom Visualizations</h2>
-            <p className="text-gray-600 dark:text-gray-300">
-              Create and share custom geographic visualizations
-            </p>
-          </div>
-        </section>
+        </div>
       </div>
-    </main>
+      
+      <div id="map">
+        <Map />
+      </div>
+
+      {/* Scripts */}
+      <Script src="https://code.jquery.com/jquery-3.6.0.min.js" />
+      <Script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js" />
+      <Script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js" />
+    </>
   )
 } 

@@ -7,6 +7,7 @@ const nextConfig = {
     ],
   },
   // Tambahkan konfigurasi lain jika diperlukan
+  transpilePackages: ['@simonwep/pickr']
 }
 
 module.exports = nextConfig 
