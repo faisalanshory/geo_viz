@@ -5,8 +5,8 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Your App Name',
-  description: 'Your app description',
+  title: 'Geo-Viz | Geographic Visualization',
+  description: 'Interactive geographic visualization platform',
 }
 
 export default function RootLayout({
