@@ -1,0 +1,24 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Contoh Area",
+                "description": "Ini adalah contoh area"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [116.0, -2.0],
+                        [116.0, -3.0],
+                        [117.0, -3.0],
+                        [117.0, -2.0],
+                        [116.0, -2.0]
+                    ]
+                ]
+            }
+        }
+    ]
+} 

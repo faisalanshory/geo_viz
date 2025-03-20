@@ -1,0 +1,752 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+:root {
+    /* Color Palette */
+    --primary-blue: #00B4FF;
+    --primary-hover: #0095D9;
+    --bg-dark: #13151A;
+    --panel-bg: #1F2937;
+    --section-bg: #2A3441;
+    --border-color: rgba(255, 255, 255, 0.15);
+    --text-primary: #FFFFFF;
+    --text-secondary: rgba(255, 255, 255, 0.85);
+    --text-muted: rgba(255, 255, 255, 0.6);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg-dark);
+    display: flex;
+    font-family: 'Inter', sans-serif;
+}
+
+#control-panel {
+    width: 340px;
+    background: var(--panel-bg);
+    color: var(--text-primary);
+    padding: 24px;
+    height: 100vh;
+    overflow-y: auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    border-right: 1px solid var(--border-color);
+}
+
+.panel-section {
+    margin-bottom: 24px;
+    padding: 20px;
+    background: var(--section-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.panel-section h3 {
+    margin: 0 0 20px 0;
+    color: var(--primary-blue);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+#map {
+    flex: 1;
+    height: 100vh;
+}
+
+/* Form styling */
+#upload-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#upload-form input[type="file"] {
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    padding: 12px;
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 13px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#upload-form button {
+    background: var(--primary-blue);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    color: var(--text-primary);
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#upload-form button:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 180, 255, 0.3);
+}
+
+/* Color picker styling */
+.color-picker-section {
+    display: grid;
+    gap: 16px;
+}
+
+.color-picker-section label {
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Predefined color swatches */
+.color-swatches {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.color-swatch {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 6px;
+    border: 2px solid var(--border-color);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.color-swatch:hover {
+    transform: scale(1.1);
+}
+
+/* DataTable styling */
+.dataTables_wrapper {
+    background: var(--bg-dark);
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+table.dataTable {
+    background: transparent;
+    color: white;
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+}
+
+table.dataTable thead th {
+    background: var(--bg-dark);
+    color: var(--primary-blue);
+    font-weight: 600;
+    font-size: 13px;
+    padding: 16px;
+    border-bottom: 2px solid var(--border-color);
+    text-align: left;
+}
+
+table.dataTable tbody td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 13px;
+    color: white;
+    background: var(--bg-dark);
+}
+
+table.dataTable tbody tr:hover td {
+    background: var(--section-bg);
+}
+
+.dataTables_length select,
+.dataTables_filter input {
+    background: var(--bg-dark);
+    color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 8px 12px;
+}
+
+.dataTables_filter input::placeholder {
+    color: var(--text-secondary);
+}
+
+.dataTables_info {
+    color: var(--text-primary);
+    font-size: 12px;
+    padding: 12px 0;
+}
+
+/* Popup styling */
+.leaflet-popup-content-wrapper {
+    background: var(--panel-bg);
+    color: var(--text-primary);
+    border-radius: 12px;
+    font-size: 13px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.leaflet-popup-content {
+    margin: 16px 20px;
+    line-height: 1.5;
+}
+
+.leaflet-popup-tip {
+    background: var(--panel-bg);
+}
+
+.leaflet-popup-close-button {
+    color: var(--text-muted);
+    transition: color 0.2s;
+}
+
+.leaflet-popup-close-button:hover {
+    color: var(--text-primary);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--section-bg);
+    border-radius: 5px;
+    border: 2px solid var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--border-color);
+}
+
+/* Color picker custom styling */
+.pickr {
+    width: 100%;
+}
+
+.pickr button {
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pickr .pcr-button::before {
+    border-radius: 3px;
+}
+
+/* Add these new styles to your existing CSS */
+
+#layers-list {
+    margin-bottom: 16px;
+}
+
+.layer-item {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    background: var(--section-bg);
+}
+
+.layer-item-header {
+    padding: 12px;
+    cursor: pointer;
+}
+
+.layer-style-controls {
+    display: none;
+    padding: 12px;
+    border-top: 1px solid var(--border-color);
+}
+
+.layer-item.expanded .layer-style-controls {
+    display: block;
+}
+
+.layer-name {
+    flex: 1;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.layer-controls {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.layer-control-btn {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s;
+    padding: 0;
+    font-size: 14px;
+}
+
+.layer-control-btn:hover {
+    color: var(--primary-blue);
+}
+
+.color-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.color-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.color-control label {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.color-picker-wrapper {
+    width: 80px;
+}
+
+/* Update Pickr button styling */
+.pickr .pcr-button {
+    height: 24px !important;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+
+.layer-visibility {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.visibility-toggle {
+    width: 36px;
+    height: 20px;
+    background: var(--section-bg);
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.2s;
+    color: var(--text-muted);
+}
+
+.visibility-toggle.active {
+    background: var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+.visibility-toggle::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.2s;
+}
+
+.visibility-toggle.active::after {
+    transform: translateX(16px);
+}
+
+.layer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.remove-layer-btn {
+    width: 100%;
+    padding: 12px;
+    background: #DC2626;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.remove-layer-btn:hover {
+    background: #B91C1C;
+    transform: translateY(-1px);
+}
+
+.dataTables_empty {
+    color: var(--text-secondary);
+    background: var(--bg-dark) !important;
+    padding: 24px !important;
+    text-align: center;
+}
+
+/* Tambahkan styles untuk kontrol baru */
+.style-section,
+.filter-section {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+}
+
+.slider-control {
+    background: var(--bg-dark);
+    padding: 12px;
+    border-radius: 6px;
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.slider-control label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    min-width: 60px;
+}
+
+.opacity-slider {
+    flex: 1;
+    height: 6px;
+    -webkit-appearance: none;
+    background: var(--border-color);
+    border-radius: 3px;
+    outline: none;
+}
+
+.opacity-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background: var(--primary-blue);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.opacity-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 4px rgba(0, 180, 255, 0.2);
+}
+
+.opacity-value {
+    width: 50px;
+    padding: 4px 8px;
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-primary);
+    font-size: 12px;
+    text-align: center;
+}
+
+.opacity-value:focus {
+    border-color: var(--primary-blue);
+    outline: none;
+}
+
+.blend-mode-control {
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.blend-mode-control label {
+    min-width: 60px;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.blend-mode-select {
+    flex: 1;
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.filter-section {
+    margin-top: 16px;
+}
+
+.filter-section > label {
+    display: block;
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.filter-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filter-control {
+    display: grid;
+    grid-template-columns: 1fr 80px 1fr auto;
+    gap: 8px;
+    align-items: center;
+}
+
+.filter-control select,
+.filter-control input {
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.add-filter-btn {
+    margin-top: 8px;
+    width: 100%;
+    background: transparent;
+    border: 1px dashed var(--border-color);
+    color: var(--text-secondary);
+    padding: 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s;
+}
+
+.add-filter-btn:hover {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+.remove-filter-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 4px;
+    font-size: 12px;
+}
+
+.remove-filter-btn:hover {
+    color: #DC2626;
+}
+
+/* Add legend styles */
+.legend-control {
+    background: var(--section-bg);
+    padding: 12px;
+    border-radius: 6px;
+    margin-top: 12px;
+}
+
+.legend-title {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.legend-items {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+}
+
+.legend-label {
+    font-size: 12px;
+    color: var(--text-primary);
+}
+
+/* Add tooltip field styles */
+.tooltip-section {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+}
+
+.tooltip-fields {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.tooltip-field {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.tooltip-field label {
+    font-size: 12px;
+    color: var(--text-primary);
+}
+
+/* Update color scale section */
+.color-scale-section {
+    margin-bottom: 16px;
+}
+
+.color-scale-controls {
+    margin-top: 8px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.color-ramp-preview {
+    flex: 1;
+    height: 24px;
+    border-radius: 4px;
+    background: linear-gradient(to right, var(--primary-blue), #4CAF50);
+}
+
+/* Tambahkan styles untuk fitur baru */
+.style-section {
+    padding: 12px;
+    background: var(--bg-dark);
+    border-radius: 6px;
+    margin-top: 12px;
+}
+
+.color-by-section,
+.height-section,
+.filter-section,
+.label-section {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+}
+
+.color-by-section select,
+.height-section select,
+.label-section select {
+    width: 100%;
+    background: var(--section-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 8px;
+    border-radius: 4px;
+    margin-top: 8px;
+}
+
+.color-scheme-select,
+.height-scale,
+.label-style {
+    margin-top: 12px;
+}
+
+.filter-list {
+    margin: 8px 0;
+}
+
+.filter-item {
+    background: var(--section-bg);
+    padding: 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.filter-content {
+    display: grid;
+    grid-template-columns: 1fr 80px 1fr auto;
+    gap: 8px;
+    align-items: center;
+}
+
+.filter-item select,
+.filter-item input {
+    width: 100%;
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.add-filter-btn {
+    width: 100%;
+    background: transparent;
+    border: 1px dashed var(--border-color);
+    color: var(--text-secondary);
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.add-filter-btn:hover {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+/* Update tooltip styles */
+.tooltip-fields {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.tooltip-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.tooltip-checkbox input {
+    margin: 0;
+}
+
+.tooltip-checkbox span {
+    font-size: 12px;
+    color: var(--text-primary);
+}
+
+/* Update DataTable styling */
+table.dataTable tbody td:first-child {
+    font-weight: bold;
+    background: var(--bg-dark) !important;
+} 
